@@ -1543,9 +1543,273 @@ section[id]{scroll-margin-top:92px}
   white-space:nowrap;
 }
 
+
+/* ===== v69 — unified section text alignment ===== */
+/* Protection headline now starts on the same text grid as the other core sections. */
+#chomu-ssha .protection-head{
+  width:100% !important;
+  max-width:1056px !important;
+  margin:0 0 30px !important;
+  text-align:left !important;
+}
+#chomu-ssha .protection-h2{
+  max-width:900px !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  text-align:left !important;
+}
+
+/* FAQ used a narrower centered wrap; return it to the common 1120px site grid. */
+#faq .diligence-wrap{
+  max-width:1120px !important;
+}
+#faq .simple-head,
+#zahyst .offer-summary-intro,
+#model .simple-model-copy,
+#wood .wood-track-copy{
+  text-align:left !important;
+}
+
+/* Screen 2 intentionally keeps wider galleries, but its copy aligns with the normal site grid. */
+@media (min-width:1288px){
+  #idea .idea-h2-fixed{
+    width:1056px !important;
+    max-width:1056px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  #idea .idea-lead{
+    margin-left:84px !important;
+    margin-right:0 !important;
+  }
+}
+
+/* WOOD keeps the larger visual canvas, while the text column begins on the common site line. */
+@media (min-width:1220px){
+  #wood .wood-track-grid--visual{
+    padding-left:50px;
+    box-sizing:border-box;
+  }
+}
+
+/* Tablet + mobile: every primary section intro follows one left edge and avoids inherited centering. */
+@media (max-width:1099px){
+  #idea .idea-h2-fixed,
+  #idea .idea-lead,
+  #materials .premium-materials-head--reels,
+  #chomu-ssha .protection-head,
+  #chomu-ssha .protection-h2,
+  #model .simple-model-copy,
+  #zahyst .offer-summary-intro,
+  #wood .wood-track-copy,
+  #faq .simple-head{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    text-align:left !important;
+  }
+}
+
+/* Long owner quote: keep paragraph rhythm stable on all breakpoints. */
+#chomu-ssha .protection-side-copy .protection-lead-wide + .protection-lead-wide{
+  margin-top:14px;
+}
+@media (max-width:720px){
+  #chomu-ssha .protection-side-copy .protection-lead-wide + .protection-lead-wide{
+    margin-top:12px;
+  }
+}
+
+
+
+/* ===== v70 — protection block axis + owner photo/text structure fix ===== */
+
+/* One common axis for the protection headline and the owner row. */
+#chomu-ssha .protection-head{
+  width:100% !important;
+  max-width:1120px !important;
+  margin:0 auto 30px !important;
+  padding:0 !important;
+  text-align:left !important;
+}
+#chomu-ssha .protection-h2{
+  max-width:900px !important;
+  margin:0 !important;
+  text-align:left !important;
+}
+
+/* The owner image and quote now begin from the same top line. */
+#chomu-ssha .protection-media-row{
+  width:100% !important;
+  max-width:1120px !important;
+  margin:30px auto 46px !important;
+  align-items:start !important;
+}
+#chomu-ssha .protection-media-row .folder-center,
+#chomu-ssha .protection-side-copy{
+  align-self:start !important;
+}
+#chomu-ssha .protection-media-row .folder-center{
+  width:100% !important;
+  margin:0 !important;
+  justify-content:flex-start !important;
+}
+#chomu-ssha .protection-side-copy{
+  padding-top:0 !important;
+  margin:0 !important;
+}
+#chomu-ssha .owner-photo-shell{
+  width:100%;
+}
+
+/* Desktop: headline, photo and text all use the same 1120px composition. */
+@media (min-width:1181px){
+  #chomu-ssha .protection-media-row{
+    grid-template-columns:500px minmax(0,1fr) !important;
+    gap:64px !important;
+    justify-content:stretch !important;
+  }
+  #chomu-ssha .protection-media-row .folder-center .folder-visual{
+    width:100% !important;
+    max-width:500px !important;
+    margin:0 !important;
+  }
+  #chomu-ssha .protection-side-copy{
+    max-width:none !important;
+  }
+}
+
+/* Medium desktop / tablet: preserve a clean two-column relationship without overflow. */
+@media (min-width:921px) and (max-width:1180px){
+  #chomu-ssha .protection-head,
+  #chomu-ssha .protection-media-row{
+    max-width:820px !important;
+  }
+  #chomu-ssha .protection-h2{
+    max-width:820px !important;
+  }
+  #chomu-ssha .protection-media-row{
+    grid-template-columns:330px minmax(0,1fr) !important;
+    gap:40px !important;
+  }
+  #chomu-ssha .protection-media-row .folder-center .folder-visual{
+    width:100% !important;
+    max-width:330px !important;
+    margin:0 !important;
+  }
+  #chomu-ssha .protection-side-copy{
+    max-width:none !important;
+  }
+}
+
+/* Small tablet: stack on a single left axis instead of centering the portrait separately. */
+@media (min-width:761px) and (max-width:920px){
+  #chomu-ssha .protection-head,
+  #chomu-ssha .protection-media-row{
+    max-width:720px !important;
+  }
+  #chomu-ssha .protection-media-row{
+    grid-template-columns:1fr !important;
+    gap:24px !important;
+  }
+  #chomu-ssha .protection-media-row .folder-center .folder-visual{
+    width:min(100%,420px) !important;
+    max-width:420px !important;
+    margin:0 !important;
+  }
+  #chomu-ssha .protection-side-copy{
+    max-width:720px !important;
+  }
+}
+
+/* Mobile: heading, portrait and quote share the exact same left edge. */
+@media (max-width:760px){
+  #chomu-ssha .protection-head,
+  #chomu-ssha .protection-media-row{
+    width:100% !important;
+    max-width:none !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+  #chomu-ssha .protection-media-row{
+    grid-template-columns:1fr !important;
+    gap:22px !important;
+  }
+  #chomu-ssha .protection-media-row .folder-center .folder-visual{
+    width:100% !important;
+    max-width:410px !important;
+    margin:0 !important;
+  }
+  #chomu-ssha .protection-side-copy{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+  }
+}
+
+
+/* v73 — approved 3D protection icons inserted into the live cards */
+#chomu-ssha .documents-grid{
+  align-items:stretch;
+}
+#chomu-ssha .doc-card{
+  min-height:0;
+}
+#chomu-ssha .doc-content{
+  justify-content:flex-start;
+}
+#chomu-ssha .doc-icon.doc-icon-3d{
+  width:82px !important;
+  height:66px !important;
+  flex:0 0 66px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  overflow:visible;
+}
+#chomu-ssha .doc-icon-3d .doc-icon-img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:left center;
+  display:block;
+  filter:drop-shadow(0 6px 8px rgba(104,72,24,.11));
+}
+#chomu-ssha .doc-card:nth-child(2) .doc-icon-3d{width:94px !important;}
+#chomu-ssha .doc-card:nth-child(5) .doc-icon-3d{width:98px !important;}
+#chomu-ssha .doc-title{
+  margin-top:9px !important;
+}
+#chomu-ssha .doc-text{
+  margin-top:0 !important;
+}
+#chomu-ssha .doc-card::after{
+  opacity:.13 !important;
+}
+@media (min-width:1181px){
+  #chomu-ssha .doc-content{inset:58px 22px 20px !important;}
+  #chomu-ssha .doc-card,#chomu-ssha .doc-card:nth-child(4),#chomu-ssha .doc-card:nth-child(5){aspect-ratio:4/4.72 !important;}
+}
+@media (min-width:761px) and (max-width:1180px){
+  #chomu-ssha .doc-content{inset:58px 22px 22px !important;}
+  #chomu-ssha .doc-icon.doc-icon-3d{width:78px !important;height:62px !important;flex-basis:62px !important;}
+  #chomu-ssha .doc-card:nth-child(2) .doc-icon-3d{width:90px !important;}
+  #chomu-ssha .doc-card:nth-child(5) .doc-icon-3d{width:94px !important;}
+}
+@media (max-width:760px){
+  #chomu-ssha .doc-content{inset:56px 23px 21px !important;}
+  #chomu-ssha .doc-icon.doc-icon-3d{width:82px !important;height:65px !important;flex-basis:65px !important;}
+  #chomu-ssha .doc-card:nth-child(2) .doc-icon-3d{width:94px !important;}
+  #chomu-ssha .doc-card:nth-child(5) .doc-icon-3d{width:98px !important;}
+  #chomu-ssha .doc-title{margin-top:8px !important;}
+}
 </style>
 <title>Wood Invest</title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
@@ -2035,17 +2299,17 @@ section[id]{scroll-margin-top:92px}
   .doc-foot{margin-top:auto; color:#887A67; font-size:7px; line-height:1.55; letter-spacing:.2em; text-transform:uppercase; position:relative; z-index:4;}
   .doc-photo{position:absolute; right:-2px; bottom:-2px; width:57%; height:52%; z-index:1; background-size:cover; background-position:center; opacity:.92; -webkit-mask-image:linear-gradient(135deg,transparent 0%,rgba(0,0,0,.08) 16%,rgba(0,0,0,.82) 53%,#000 100%); mask-image:linear-gradient(135deg,transparent 0%,rgba(0,0,0,.08) 16%,rgba(0,0,0,.82) 53%,#000 100%);}
   .doc-photo::after{content:""; position:absolute; inset:0; background:linear-gradient(90deg,#FBF6EC 0%,transparent 44%),linear-gradient(0deg,rgba(250,247,239,.05),transparent 50%);}
-  .doc-card[data-photo="deed"] .doc-photo{background-image:url('assets/image_01.webp'); width:62%; height:50%;}
+  .doc-card[data-photo="deed"] .doc-photo{background-image:url('assets/asset_01.webp'); width:62%; height:50%;}
     /* local fix for card 3: keep the original image, but soften only the text-overlap zone */
   .protection-v3 .doc-card[data-photo="house"] .doc-photo::after{
     background:
       linear-gradient(90deg, #FBF6EC 0%, #FBF6EC 26%, rgba(251,246,236,.90) 48%, rgba(251,246,236,.32) 72%, transparent 100%),
       linear-gradient(0deg, rgba(250,247,239,.12) 0%, transparent 54%);
   }
-.doc-card[data-photo="steps"] .doc-photo{background-image:url('assets/image_02.webp'); width:58%; height:58%;}
-  .doc-card[data-photo="house"] .doc-photo{background-image:url('assets/image_03.webp'); width:61%; height:70%; background-position:54% 50%;}
-  .doc-card[data-photo="la"] .doc-photo{background-image:url('assets/image_04.webp'); width:64%; height:58%; background-position:50% 58%;}
-  .doc-card[data-photo="team"] .doc-photo{background-image:url('assets/image_05.webp'); width:62%; height:58%; background-position:47% 50%;}
+.doc-card[data-photo="steps"] .doc-photo{background-image:url('assets/asset_02.webp'); width:58%; height:58%;}
+  .doc-card[data-photo="house"] .doc-photo{background-image:url('assets/asset_03.webp'); width:61%; height:70%; background-position:54% 50%;}
+  .doc-card[data-photo="la"] .doc-photo{background-image:url('assets/asset_04.webp'); width:64%; height:58%; background-position:50% 58%;}
+  .doc-card[data-photo="team"] .doc-photo{background-image:url('assets/asset_05.webp'); width:62%; height:58%; background-position:47% 50%;}
 
   .proof-rail{margin-top:48px; padding:20px 24px; display:grid; grid-template-columns:1.35fr .95fr .95fr auto; align-items:center; gap:0; border-top:1px solid rgba(151,103,42,.18); border-bottom:1px solid rgba(151,103,42,.16); background:rgba(255,250,241,.46); backdrop-filter:blur(5px);}
   .proof-item{padding:0 28px; min-height:56px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid rgba(151,103,42,.18);}
@@ -2111,6 +2375,20 @@ section[id]{scroll-margin-top:92px}
 .protection-v3 .doc-title{font-size:clamp(15px,1.18vw,20px);line-height:1.1;max-width:100%}
 .protection-v3 .doc-text{font-size:clamp(10px,.72vw,12px);line-height:1.48;max-width:88%}
 .protection-v3 .doc-photo{width:60%;height:49%}
+/* v71 cards cleanup: replace AI-like image emphasis with compact 3D-style icons and tighter spacing */
+.protection-v3 .doc-card,.protection-v3 .doc-card:nth-child(4),.protection-v3 .doc-card:nth-child(5){aspect-ratio:4/4.72}
+.protection-v3 .doc-top{top:18px;left:24px;right:24px}
+.protection-v3 .doc-content{inset:58px 26px 24px}
+.protection-v3 .doc-icon{width:42px;height:42px;flex-basis:42px;color:#936520;border:1px solid rgba(194,143,61,.55);background:radial-gradient(circle at 30% 24%,#FFFDF7 0%,#F8EBD0 48%,#EBD0A3 82%,#DDB881 100%);box-shadow:inset 0 2px 6px rgba(255,255,255,.82), inset 0 -6px 12px rgba(177,126,41,.15), 0 8px 16px rgba(94,67,29,.14)}
+.protection-v3 .doc-icon svg{width:20px;height:20px;stroke-width:1.7;filter:drop-shadow(0 1px 0 rgba(255,255,255,.45))}
+.protection-v3 .doc-title{margin-top:12px;max-width:100%;font-size:clamp(17px,1.28vw,21px)}
+.protection-v3 .doc-text{max-width:100%;font-size:clamp(12px,.78vw,13.5px);line-height:1.45}
+.protection-v3 .doc-photo{display:none}
+.protection-v3 .doc-card::after{opacity:.22;background:radial-gradient(circle at 14% 10%,rgba(255,255,255,.95),transparent 25%),linear-gradient(180deg,rgba(236,216,182,.18) 0%,transparent 28%,transparent 100%),repeating-linear-gradient(0deg,rgba(124,94,51,.02) 0,rgba(124,94,51,.02) 1px,transparent 1px,transparent 4px)}
+.protection-v3 .doc-card:hover{transform:translateY(-4px)}
+@media (max-width: 1024px){.protection-v3 .doc-card,.protection-v3 .doc-card:nth-child(4),.protection-v3 .doc-card:nth-child(5){aspect-ratio:4/4.65}.protection-v3 .doc-content{inset:56px 24px 24px}}
+@media (max-width: 640px){.protection-v3 .doc-card,.protection-v3 .doc-card:last-child{max-width:370px;aspect-ratio:4/4.78}.protection-v3 .doc-content{inset:54px 24px 22px}.protection-v3 .doc-title{font-size:22px}.protection-v3 .doc-text{font-size:13px}}
+
 .protection-v3 .proof-rail{margin-top:52px}
 @media(max-width:1180px){
  .protection-v3 .documents-grid{grid-template-columns:repeat(3,1fr);max-width:930px}
@@ -2556,13 +2834,341 @@ nav.links a:hover{color:var(--white-ink)}
 .wood-photo-caption--logo img{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 2px 12px rgba(0,0,0,.4))}
 @media(max-width:620px){.wood-hotel-logo img{width:min(100%,220px)}.wood-photo-caption--logo{width:min(52%,190px);left:20px;bottom:20px}}
 </style>
+<meta name="theme-color" content="#0B0E16"/>
+<style>
+
+/* ========================================================================== 
+   v74 — MOBILE EXPERIENCE / full-site responsive design pass
+   Goal: editorial clarity + comfortable reading + preserved premium aesthetic
+   ========================================================================== */
+
+:root{--mobile-gutter:20px}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:76px}
+body{overflow-x:hidden}
+img{height:auto}
+
+@media (max-width:860px){
+  :root{--mobile-gutter:clamp(18px,5.1vw,24px)}
+  .wrap{width:100%;max-width:none;padding-left:var(--mobile-gutter)!important;padding-right:var(--mobile-gutter)!important}
+  .pad{padding:72px 0}
+  section[id]{scroll-margin-top:76px}
+
+  /* Header — stable, compact, thumb-friendly */
+  .site-header{position:fixed!important;top:0;left:0;right:0;background:rgba(10,13,21,.96)!important;border-bottom:1px solid rgba(255,255,255,.075)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  .header-inner{height:64px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important}
+  .site-header .brand-logo{height:21px!important;max-width:152px!important}
+  .menu-toggle{width:44px!important;height:44px!important;margin-right:-7px;align-items:center!important;justify-content:center!important}
+  .menu-toggle span{position:absolute;margin:0!important}
+  .menu-toggle span:first-child{width:22px!important;transform:translateY(-4px)}
+  .menu-toggle span:last-child{width:17px!important;transform:translateY(4px)}
+  .menu-toggle[aria-expanded='true'] span:first-child{width:22px!important;transform:rotate(45deg)!important}
+  .menu-toggle[aria-expanded='true'] span:last-child{width:22px!important;transform:rotate(-45deg)!important}
+  .mobile-menu{position:fixed!important;top:64px!important;left:0!important;right:0!important;max-height:calc(100dvh - 64px);overflow:auto;padding:8px var(--mobile-gutter) calc(20px + env(safe-area-inset-bottom))!important;background:rgba(9,12,19,.985)!important}
+  .mobile-menu>a:not(.mobile-menu-cta){min-height:50px;display:flex;align-items:center;padding:12px 0!important;font-size:15px!important}
+  .mobile-menu-cta{min-height:48px!important;margin-top:16px!important;font-size:14px!important}
+
+  /* Hero — information first, image second, no crowding */
+  .hero{padding-top:64px}
+  .hero .split{min-height:auto!important}
+  .hero .copy-panel{padding:40px var(--mobile-gutter) 28px!important;gap:14px!important}
+  .hero .copy-panel .badge{margin:0 0 4px!important;max-width:100%;font-size:10.5px!important;line-height:1.45;letter-spacing:.105em!important;padding-left:11px!important}
+  .hero .copy-panel .h1.hero-title-fixed{max-width:100%!important;font-size:clamp(32px,9.2vw,40px)!important;line-height:1.02!important;letter-spacing:-.045em!important}
+  .hero-title-fixed>span:not(.sub-line){display:block!important}
+  .hero .copy-panel .h1 .sub-line{margin-top:18px!important;font-size:clamp(17px,4.8vw,20px)!important;line-height:1.28!important;letter-spacing:-.02em!important;filter:none!important}
+  .hero-invest-fixed>span{display:block!important}
+  .hero .copy-panel .hero-lead{margin-top:2px!important;max-width:100%!important;font-size:15.5px!important;line-height:1.58!important}
+  .hero-ctas{margin-top:10px!important;gap:14px!important;align-items:stretch!important}
+  .hero-ctas .btn{width:100%;min-height:50px;justify-content:center;font-size:14px;padding:13px 18px}
+  .hero-ctas .link-quiet{align-self:center;padding:7px 4px;font-size:13.5px}
+  .copy-panel .trust-bar{max-width:none!important;margin-top:8px!important;padding-top:18px!important;font-size:12.5px!important;line-height:1.55!important}
+  .hero-trust-fixed>span{display:inline!important}
+  .hero-trust-fixed>span+span::before{content:' '}
+  .hero .media-panel{padding:4px var(--mobile-gutter) 30px!important;gap:12px!important}
+  .legal-flag{border-radius:3px 10px 10px 3px;padding:11px 12px!important;gap:9px!important;font-size:11.5px!important;line-height:1.42!important}
+  .legal-flag .us-flag{width:20px;height:14px}
+  .flip-framed{aspect-ratio:16/10!important;border-radius:10px!important;box-shadow:0 18px 36px -20px rgba(0,0,0,.72),0 0 0 1px rgba(255,255,255,.06)!important}
+  .flip-demo .sync-hint{bottom:12px!important;width:max-content;max-width:calc(100% - 24px);padding:8px 11px!important;white-space:normal!important;text-align:center;font-size:10.5px!important;line-height:1.25!important}
+  .stat-strip{grid-template-columns:repeat(2,1fr)!important}
+  .stat-strip .cell{min-height:104px;padding:18px var(--mobile-gutter)!important}
+  .stat-strip .num{font-size:23px!important}
+  .stat-strip .lbl{font-size:11px!important;line-height:1.4!important}
+
+  /* Section typography — one consistent reading rhythm */
+  #idea .idea-h2,#chomu-ssha .protection-h2,#model .simple-model-copy h2,#zahyst .offer-summary-intro h2,#wood .wood-track-copy h2,#faq .simple-head h2,#zayavka h2{font-size:clamp(30px,8.5vw,36px)!important;line-height:1.08!important;letter-spacing:-.035em!important}
+  #idea .idea-h2-fixed>span{display:inline!important}
+  #idea .idea-h2-fixed>span+span::before{content:' '}
+  #idea .idea-lead{margin:16px 0 32px!important;max-width:none!important;font-size:15.5px!important;line-height:1.65!important}
+
+  /* Project process — strong visual sequence, comfortable controls */
+  #idea .idea-steps{grid-template-columns:1fr!important;gap:34px!important}
+  #idea .idea-photo{aspect-ratio:16/10!important;border-radius:10px!important}
+  #idea .idea-stage{top:12px!important;left:12px!important;width:34px!important;height:34px!important;font-size:13px!important}
+  #idea .idea-gallery-arrow{width:44px!important;height:44px!important;font-size:27px!important}
+  #idea .idea-gallery-prev{left:8px!important}
+  #idea .idea-gallery-next{right:8px!important}
+  #idea .idea-gallery-meta{left:12px!important;right:12px!important;bottom:10px!important;font-size:10px!important}
+  #idea .idea-step h3{margin-top:15px!important;font-size:20px!important;line-height:1.2!important}
+  #idea .idea-step p{margin-top:7px!important;font-size:14.5px!important;line-height:1.6!important}
+
+  /* Video highlights — intentional swipe carousel with visible next card */
+  #materials{margin-top:44px!important;padding-top:28px!important}
+  #materials .premium-materials-head--reels{display:block!important;margin-bottom:18px!important}
+  #materials .premium-materials-head--reels h3{font-size:clamp(27px,7.4vw,32px)!important;line-height:1.1!important}
+  #materials .premium-materials-head--reels>p{margin-top:12px!important;max-width:none!important;font-size:14.5px!important;line-height:1.62!important}
+  #materials .premium-materials-head--reels::after{content:'Гортайте →';display:block;margin-top:14px;color:#9b7438;font:700 9.5px/1 'Manrope',sans-serif;letter-spacing:.14em;text-transform:uppercase}
+  .reels-showcase{display:grid!important;grid-auto-flow:column!important;grid-template-columns:none!important;grid-auto-columns:min(76vw,300px)!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;margin-right:calc(var(--mobile-gutter) * -1);padding:0 var(--mobile-gutter) 12px 0!important;scroll-snap-type:x mandatory!important;scroll-padding-left:0;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;scrollbar-width:none}
+  .reels-showcase::-webkit-scrollbar{display:none}
+  .reel-card{padding-top:0!important;scroll-snap-align:start;scroll-snap-stop:always}
+  .reel-frame{border-radius:2px;box-shadow:0 14px 26px rgba(12,32,49,.09)!important}
+  .reel-play{width:52px!important;height:52px!important}
+
+  /* Protection / owner — editorial single-column, strong relationship between image and quote */
+  #chomu-ssha .protection-head{width:100%!important;max-width:none!important;margin:0 0 28px!important}
+  #chomu-ssha .protection-eyebrow{margin-bottom:14px!important;font-size:9.5px!important;line-height:1.35!important;letter-spacing:.14em!important}
+  #chomu-ssha .protection-eyebrow::before{width:28px!important;flex-basis:28px!important}
+  #chomu-ssha .protection-media-row{display:grid!important;grid-template-columns:1fr!important;gap:22px!important;width:100%!important;max-width:none!important;margin:0 0 40px!important}
+  #chomu-ssha .folder-center{width:100%!important;justify-content:flex-start!important}
+  #chomu-ssha .folder-visual{width:100%!important;max-width:420px!important;margin:0!important}
+  #chomu-ssha .owner-photo-shell{aspect-ratio:4/5!important;max-height:520px;overflow:hidden}
+  #chomu-ssha .owner-photo{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 24%!important}
+  #chomu-ssha .protection-side-copy{width:100%!important;max-width:none!important;padding:0!important;margin:0!important}
+  #chomu-ssha .side-kicker{margin-bottom:12px!important;font-size:9.5px!important;letter-spacing:.14em!important}
+  #chomu-ssha .protection-lead-wide{margin-top:0!important;margin-bottom:14px!important;max-width:none!important;font-size:15px!important;line-height:1.68!important;color:#4E493F!important}
+  #chomu-ssha .owner-sign{margin-top:19px!important;padding-top:16px!important}
+  #chomu-ssha .owner-name{font-size:15px!important}
+  #chomu-ssha .owner-role{font-size:11px!important;line-height:1.45!important}
+
+  /* Protection cards — swipeable, not five huge vertical screens */
+  #chomu-ssha .documents-area{width:100%;margin-top:0}
+  #chomu-ssha .documents-label{display:flex!important;align-items:end!important;justify-content:space-between!important;gap:12px!important;margin:0 0 14px!important;max-width:none!important}
+  #chomu-ssha .documents-label strong{font-size:15px!important;line-height:1.3!important}
+  #chomu-ssha .documents-label::after{content:'Гортайте →';flex:none;color:#9b7438;font:700 9px/1 'Manrope',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  #chomu-ssha .documents-grid{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column!important;grid-auto-columns:min(84vw,330px)!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;max-width:none!important;margin-right:calc(var(--mobile-gutter) * -1)!important;padding:2px var(--mobile-gutter) 14px 0!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;scrollbar-width:none}
+  #chomu-ssha .documents-grid::-webkit-scrollbar{display:none}
+  #chomu-ssha .doc-card,#chomu-ssha .doc-card:last-child,#chomu-ssha .doc-card:nth-child(4),#chomu-ssha .doc-card:nth-child(5){grid-column:auto!important;width:auto!important;max-width:none!important;min-height:374px!important;aspect-ratio:auto!important;margin:0!important;justify-self:stretch!important;transform:none!important;scroll-snap-align:start;scroll-snap-stop:always}
+  #chomu-ssha .doc-card::before{inset:10px!important}
+  #chomu-ssha .doc-top{top:18px!important;left:22px!important;right:22px!important}
+  #chomu-ssha .doc-brand{font-size:9px!important;letter-spacing:.17em!important}
+  #chomu-ssha .doc-content{inset:54px 22px 22px!important}
+  #chomu-ssha .doc-icon.doc-icon-3d{width:72px!important;height:56px!important;flex-basis:56px!important}
+  #chomu-ssha .doc-card:nth-child(2) .doc-icon-3d{width:82px!important}
+  #chomu-ssha .doc-card:nth-child(5) .doc-icon-3d{width:84px!important}
+  #chomu-ssha .doc-title{margin-top:8px!important;max-width:100%!important;font-size:20px!important;line-height:1.1!important;letter-spacing:-.025em!important}
+  #chomu-ssha .doc-text{max-width:100%!important;font-size:13px!important;line-height:1.55!important}
+  #chomu-ssha .proof-rail{display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;margin-top:24px!important;padding:0!important;background:transparent!important}
+  #chomu-ssha .proof-item{min-height:94px!important;padding:16px 14px!important;border-right:1px solid rgba(151,103,42,.15)!important;border-bottom:1px solid rgba(151,103,42,.15)!important;text-align:left!important}
+  #chomu-ssha .proof-item:nth-child(2){border-right:0!important}
+  #chomu-ssha .proof-item:nth-child(3){grid-column:1/-1!important;min-height:82px!important;border-right:0!important;border-top:0!important}
+  #chomu-ssha .proof-kicker{font-size:8.5px!important;line-height:1.35!important;letter-spacing:.13em!important}
+  #chomu-ssha .proof-value{font-size:19px!important}
+  #chomu-ssha .proof-value.big{font-size:29px!important}
+  #chomu-ssha .proof-cta{grid-column:1/-1!important;min-width:0!important;padding:18px 0 0!important}
+  #chomu-ssha .proof-cta .btn{width:100%!important;min-height:50px!important;justify-content:center!important}
+  #chomu-ssha .proof-note{margin-top:9px!important;font-size:8px!important;line-height:1.4!important}
+
+  /* Financial model — turn dense desktop math into a guided mobile sequence */
+  #model .simple-model-grid{grid-template-columns:1fr!important;gap:30px!important}
+  #model .simple-model-copy>p{margin-top:14px!important;max-width:none!important;font-size:15px!important;line-height:1.64!important}
+  #model .model-flow{display:grid!important;grid-template-columns:1fr!important;gap:0!important;margin-top:26px!important;padding:0!important;border:0!important}
+  #model .model-flow>div{padding:15px 17px!important;border:1px solid rgba(231,192,119,.18)!important;background:rgba(255,255,255,.035)!important}
+  #model .model-flow>div+div{margin-top:0}
+  #model .model-flow span{font-size:10px!important}
+  #model .model-flow strong{font-size:25px!important}
+  #model .model-flow i{justify-self:center!important;margin:-1px 0!important;width:30px;height:30px;display:grid!important;place-items:center;transform:rotate(90deg)!important;font-size:18px!important;background:#0c2031;z-index:2}
+  #model .model-note{margin-top:16px!important;font-size:12px!important;line-height:1.55!important}
+  #model .return-explainer{margin-top:24px!important;padding-top:20px!important}
+  #model .return-explainer-head{display:block!important;margin-bottom:14px!important}
+  #model .return-explainer-head>span{font-size:15px!important}
+  #model .return-explainer-head small{display:block!important;margin-top:5px!important;text-align:left!important;font-size:10.5px!important}
+  #model .return-calc{grid-template-columns:1fr!important;gap:8px!important}
+  #model .return-calc>div{min-height:0!important;padding:14px 15px!important}
+  #model .return-calc>i{transform:none!important;justify-self:center!important;margin:0!important;font-size:18px!important;line-height:1!important}
+  #model .return-calc strong{font-size:21px!important}
+  #model .annualized-line{grid-template-columns:1fr!important;gap:4px!important;margin-top:10px!important;padding:14px 15px!important}
+  #model .annualized-line i{display:none!important}
+  #model .annualized-line>strong{font-size:22px!important}
+  #model .simple-investor-card{padding:24px 22px!important}
+  #model .investor-main{font-size:38px!important}
+  #model .investor-stage--capital{margin-top:14px!important}
+  #model .investor-stage--capital p{font-size:13px!important}
+  #model .investor-operator{height:30px!important;font-size:28px!important}
+  #model .investor-operator--equal{height:34px!important;font-size:32px!important}
+  #model .investor-term-row{grid-template-columns:auto minmax(0,1fr)!important;gap:14px!important;align-items:center!important}
+  #model .investor-terms span{text-align:right!important;justify-self:end!important;max-width:165px!important;font-size:12.5px!important}
+  #model .investor-rate b{font-size:21px!important}
+  #model .investor-rate small{font-size:13px!important}
+  #model .investor-result{grid-template-columns:minmax(0,1fr) auto!important;gap:14px!important;align-items:end!important}
+  #model .investor-result span{max-width:170px!important;font-size:11.5px!important}
+  #model .investor-result b{font-size:27px!important;margin:0!important}
+  #model .investor-yield-summary{margin-top:16px!important;padding:14px 15px!important}
+  #model .investor-yield-summary strong{font-size:25px!important}
+  #model .text-link{margin-top:20px!important;font-size:13px!important;line-height:1.45!important}
+  #model .model-disclaimer{margin-top:20px!important;padding-top:14px!important;font-size:10.5px!important}
+
+  /* Offer summary — compact editorial cards, no dead height */
+  #zahyst .offer-summary-shell{display:block!important}
+  #zahyst .offer-summary-intro{margin-bottom:26px!important}
+  #zahyst .offer-summary-kicker{font-size:9.5px!important;margin-bottom:8px!important}
+  #zahyst .offer-summary-board{grid-template-columns:1fr!important;gap:12px!important}
+  #zahyst .summary-card,#zahyst .summary-card--wide,#zahyst .summary-card--docs,#zahyst .summary-card--accent{grid-column:auto!important;min-height:0!important;padding:22px 20px!important;display:flex!important}
+  #zahyst .summary-card-label{margin-bottom:12px!important;font-size:9.5px!important}
+  #zahyst .summary-card strong{font-size:clamp(21px,6.2vw,25px)!important;line-height:1.16!important}
+  #zahyst .summary-card p{margin-top:10px!important;max-width:none!important;font-size:14px!important;line-height:1.58!important}
+  #zahyst .summary-card--accent p{text-align:left!important;justify-self:auto!important;margin-top:12px!important;font-size:14px!important}
+  #zahyst .summary-card--accent p b{font-size:17px!important;color:#e7c077!important}
+  #zahyst .entry-range{gap:1px!important}
+  #zahyst .entry-range span{white-space:nowrap!important}
+
+  /* WOOD track record — evidence first, photo still premium */
+  #wood .wood-track-grid--visual{grid-template-columns:1fr!important;gap:34px!important}
+  #wood .wood-hotel-logo{margin-bottom:22px!important}
+  #wood .wood-hotel-logo img{width:min(100%,210px)!important}
+  #wood .wood-track-lead{margin-top:18px!important;font-size:15px!important;line-height:1.65!important}
+  #wood .wood-track-copy p{font-size:14px!important;line-height:1.65!important}
+  #wood .wood-track-stats{grid-template-columns:1fr 1fr!important;margin:24px 0 22px!important}
+  #wood .wood-stat{padding:17px 14px 17px 0!important}
+  #wood .wood-stat+.wood-stat{padding-left:14px!important;border-left:1px solid rgba(255,255,255,.14)!important;border-top:0!important}
+  #wood .wood-stat strong{font-size:27px!important}
+  #wood .wood-stat span{font-size:11.5px!important;line-height:1.45!important}
+  #wood .wood-track-body{margin-bottom:18px!important}
+  #wood .wood-project-link{font-size:13.5px!important;min-height:40px;align-items:center}
+  #wood .wood-track-note{margin-top:24px!important;padding:16px 0!important;font-size:11.5px!important;line-height:1.6!important}
+  #wood .wood-track-visual{max-width:none!important;padding:12px 0 0 12px!important}
+  #wood .wood-photo-frame{aspect-ratio:4/3!important;max-height:none!important}
+  #wood .wood-photo-frame img{object-position:center 48%!important}
+  #wood .wood-photo-caption--logo{width:min(45%,165px)!important;left:18px!important;bottom:18px!important}
+  #wood .wood-photo-badge{right:12px!important;top:12px!important;min-width:94px!important;padding:11px 12px!important}
+  #wood .wood-photo-badge strong{font-size:23px!important}
+  #wood .wood-photo-badge span{font-size:9.5px!important}
+  #wood .wood-visual-caption{text-align:left!important;margin-top:10px!important;font-size:8.5px!important;letter-spacing:.13em!important}
+
+  /* FAQ — readable questions, large tap area, answers line up */
+  #faq .simple-head--narrow{max-width:none!important}
+  #faq .simple-head p{margin-top:12px!important;max-width:none!important;font-size:14.5px!important;line-height:1.6!important}
+  #faq .important-note{grid-template-columns:1fr!important;gap:5px!important;margin:20px 0 26px!important;padding:15px 16px!important;font-size:13px!important;line-height:1.55!important}
+  #faq .faq-item summary{grid-template-columns:34px minmax(0,1fr) 22px!important;min-height:62px;padding:18px 0!important;gap:8px;font-size:15.5px!important;line-height:1.35!important}
+  #faq .faq-num{font-size:9px!important}
+  #faq .faq-item .a{padding:0 0 20px 42px!important;font-size:14px!important;line-height:1.62!important}
+
+  /* Final form — frictionless on iOS/Android */
+  #zayavka{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  #zayavka>.wrap{text-align:left!important}
+  #zayavka h2{max-width:none!important;margin:0!important}
+  #zayavka>.wrap>p{max-width:none!important;margin:13px 0 0!important;font-size:14.5px!important;line-height:1.62!important}
+  #zayavka .form-card{width:100%;max-width:none;margin:28px 0 0!important;padding:22px 18px!important}
+  #zayavka .form-grid2{grid-template-columns:1fr!important;gap:14px!important;margin-top:14px!important}
+  #zayavka .form-row label{font-size:10.5px!important;line-height:1.3!important;margin-bottom:6px!important}
+  #zayavka .form-row input,#zayavka .form-row select{width:100%;min-height:50px;font-size:16px!important;padding:12px 14px!important}
+  #zayavka .form-submit{min-height:52px!important;margin-top:18px!important}
+  #zayavka .form-micro{margin-top:13px!important;font-size:11px!important;line-height:1.55!important;text-align:left!important}
+
+  /* Footer — tidy, scannable, no desktop sitemap clutter */
+  footer{padding:42px 0 calc(30px + env(safe-area-inset-bottom))!important}
+  .foot-grid{display:grid!important;grid-template-columns:1fr!important;gap:22px!important;padding-bottom:22px!important}
+  .foot-links{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px!important}
+  .foot-links a{min-height:42px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.07);font-size:12.5px;text-decoration:none}
+  .foot-contacts{font-size:12.5px!important}
+  .foot-legal{margin-top:20px!important;font-size:10.5px!important;line-height:1.65!important}
+  .foot-copy{margin-top:14px!important;font-size:10.5px!important}
+
+  /* Touch devices: avoid hover jumps, keep interaction stable */
+  @media (hover:none){
+    .doc-card:hover,.idea-step:hover img,.wood-photo-frame:hover img{transform:none!important}
+  }
+}
+
+@media (max-width:420px){
+  :root{--mobile-gutter:18px}
+  .pad{padding:64px 0}
+  .hero .copy-panel{padding-top:34px!important}
+  .hero .copy-panel .h1.hero-title-fixed{font-size:clamp(31px,9.5vw,37px)!important}
+  .hero .copy-panel .h1 .sub-line{font-size:17px!important}
+  .stat-strip .cell{padding:16px 18px!important;min-height:100px}
+  #chomu-ssha .documents-grid{grid-auto-columns:84vw!important}
+  #model .investor-result{grid-template-columns:1fr!important}
+  #model .investor-result b{margin-top:4px!important}
+  #wood .wood-track-stats{grid-template-columns:1fr!important}
+  #wood .wood-stat{padding:15px 0!important}
+  #wood .wood-stat+.wood-stat{padding-left:0!important;border-left:0!important;border-top:1px solid rgba(255,255,255,.14)!important}
+  #wood .wood-photo-frame{aspect-ratio:1/1!important}
+  #faq .faq-item summary{font-size:15px!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+
+</style>
+
+
+<style id="v72-card-polish-repaired">
+/* v72 — final design polish for investor protection cards */
+.protection-v3 .documents-label{max-width:1320px;margin:0 auto 18px;padding:0 2px;justify-content:flex-start}
+.protection-v3 .documents-label strong{font-size:15px;letter-spacing:-.01em;color:#112235}
+.protection-v3 .documents-grid{max-width:1320px;margin:0 auto;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;align-items:stretch}
+.protection-v3 .doc-card,.protection-v3 .doc-card:nth-child(4),.protection-v3 .doc-card:nth-child(5){grid-column:auto!important;margin-left:0!important;justify-self:stretch;transform:none!important;aspect-ratio:4/4.86;background:linear-gradient(180deg,#FFFCF7 0%,#FAF3E8 100%);border:1px solid rgba(136,102,48,.12);box-shadow:0 16px 28px -24px rgba(60,43,18,.42),0 2px 6px rgba(76,55,22,.06)}
+.protection-v3 .doc-card:hover{transform:translateY(-3px)!important;box-shadow:0 22px 34px -24px rgba(60,43,18,.38),0 6px 14px rgba(76,55,22,.08)}
+.protection-v3 .doc-card::before{inset:11px;border-color:rgba(180,132,55,.52)}
+.protection-v3 .doc-card::after{opacity:.16;background:radial-gradient(circle at 14% 10%,rgba(255,255,255,.95),transparent 24%),linear-gradient(180deg,rgba(236,216,182,.18) 0%,transparent 24%,transparent 100%),repeating-linear-gradient(0deg,rgba(124,94,51,.018) 0,rgba(124,94,51,.018) 1px,transparent 1px,transparent 4px)}
+.protection-v3 .doc-top{top:18px;left:23px;right:23px}
+.protection-v3 .doc-brand{font-size:9.5px;letter-spacing:.18em;line-height:1.15;color:#1A2632}
+.protection-v3 .doc-brand small,.protection-v3 .doc-number,.protection-v3 .doc-foot,.protection-v3 .doc-photo{display:none!important}
+.protection-v3 .doc-content{inset:58px 22px 22px}
+.protection-v3 .doc-icon{width:38px;height:38px;flex-basis:38px;color:#936520;border:1px solid rgba(194,143,61,.48);background:radial-gradient(circle at 30% 24%,#FFFDF7 0%,#F9EDD5 50%,#EBD0A3 82%,#DDB881 100%);box-shadow:inset 0 2px 5px rgba(255,255,255,.82), inset 0 -5px 10px rgba(177,126,41,.14), 0 6px 12px rgba(94,67,29,.12)}
+.protection-v3 .doc-icon svg{width:18px;height:18px;stroke-width:1.75;filter:drop-shadow(0 1px 0 rgba(255,255,255,.4))}
+.protection-v3 .doc-title{margin-top:12px;max-width:100%;font-size:clamp(17px,1.16vw,20px);line-height:1.08;letter-spacing:-.028em;text-wrap:balance}
+.protection-v3 .doc-rule{width:34px;height:1px;margin:10px 0 10px;background:linear-gradient(90deg,#A16E22,#D2AA64);opacity:.9}
+.protection-v3 .doc-text{max-width:100%;font-size:clamp(11px,.72vw,12.5px);line-height:1.47;color:#49453D}
+@media (max-width:1180px){
+  .protection-v3 .documents-grid{max-width:930px;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .protection-v3 .doc-card,.protection-v3 .doc-card:nth-child(4),.protection-v3 .doc-card:nth-child(5){aspect-ratio:4/4.92}
+  .protection-v3 .doc-card:nth-child(4){grid-column:1/2!important;justify-self:end}
+  .protection-v3 .doc-card:nth-child(5){grid-column:3/4!important;justify-self:start}
+}
+@media (max-width:900px){
+  .protection-v3 .documents-grid{max-width:760px;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .protection-v3 .doc-card:nth-child(4),.protection-v3 .doc-card:nth-child(5){grid-column:auto!important;justify-self:stretch}
+  .protection-v3 .doc-card:last-child{grid-column:1/-1!important;width:min(100%,360px);justify-self:center}
+}
+@media (max-width:560px){
+  .protection-v3 .documents-grid{grid-template-columns:1fr}
+  .protection-v3 .doc-card,.protection-v3 .doc-card:last-child{width:100%;max-width:390px;grid-column:auto!important;justify-self:center;aspect-ratio:4/4.98}
+  .protection-v3 .doc-content{inset:56px 22px 22px}
+  .protection-v3 .doc-title{font-size:21px}
+  .protection-v3 .doc-text{font-size:13px}
+}
+</style>
+
+<style>
+/* v74.1 — mobile QA corrections */
+@media (max-width:860px){
+  html,body{overflow-x:hidden!important}
+  .site-header .header-nav,.site-header .header-cta{display:none!important}
+  .site-header .menu-toggle{display:flex!important;flex:0 0 44px!important;width:44px!important;min-width:44px!important;height:44px!important;position:relative!important}
+  .site-header .menu-toggle span{position:absolute!important;left:50%;top:50%;margin:0!important}
+  .site-header .menu-toggle span:first-child{width:22px!important;transform:translate(-50%,-5px)!important}
+  .site-header .menu-toggle span:last-child{width:17px!important;transform:translate(-50%,5px)!important}
+  .site-header .menu-toggle[aria-expanded='true'] span:first-child{width:22px!important;transform:translate(-50%,0) rotate(45deg)!important}
+  .site-header .menu-toggle[aria-expanded='true'] span:last-child{width:22px!important;transform:translate(-50%,0) rotate(-45deg)!important}
+  .reels-showcase,#chomu-ssha .documents-grid{margin-right:0!important;padding-right:0!important}
+}
+</style>
+
+<style>
+/* v74.2 — mobile reading mode: header gives content the screen while scrolling down */
+@media (max-width:860px){
+  .site-header{transition:transform .24s ease,background .24s ease,border-color .24s ease!important;will-change:transform}
+  .site-header.mobile-hidden{transform:translateY(-102%)}
+}
+</style>
 </head>
 <body>
-<header class="site-header" id="siteHeader"><div class="wrap header-inner"><a aria-label="Wood Devolopment — на початок" class="header-brand" href="#top"><img alt="Wood Devolopment" class="brand-logo" src="assets/image_06.webp"/></a><nav aria-label="Основна навігація" class="header-nav"><a href="#idea">Ціль</a><a href="#chomu-ssha">Гарантії пропозиції</a><a href="#calculation">Розрахунок</a><a href="#wood">Досвід</a></nav><a class="header-cta" href="#zayavka">Дізнатись деталі</a><button aria-expanded="false" aria-label="Відкрити меню" class="menu-toggle" type="button"><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu"><a href="#idea">Ціль</a><a href="#chomu-ssha">Гарантії пропозиції</a><a href="#calculation">Розрахунок</a><a href="#wood">Досвід</a><a class="mobile-menu-cta" href="#zayavka">Дізнатись деталі</a></div></header>
+<header class="site-header" id="siteHeader"><div class="wrap header-inner"><a aria-label="Wood Devolopment — на початок" class="header-brand" href="#top"><img alt="Wood Devolopment" class="brand-logo" src="assets/asset_06.webp"/></a><nav aria-label="Основна навігація" class="header-nav"><a href="#idea">Ціль</a><a href="#chomu-ssha">Гарантії пропозиції</a><a href="#model">Розрахунок</a><a href="#wood">Досвід</a></nav><a class="header-cta" href="#zayavka">Дізнатись деталі</a><button aria-expanded="false" aria-label="Відкрити меню" class="menu-toggle" type="button"><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu"><a href="#idea">Ціль</a><a href="#chomu-ssha">Гарантії пропозиції</a><a href="#model">Розрахунок</a><a href="#wood">Досвід</a><a class="mobile-menu-cta" href="#zayavka">Дізнатись деталі</a></div></header>
 <!-- ============ HERO — LA sunset ============ -->
 <section class="hero" id="top">
 <div class="split">
-<div aria-hidden="true" class="copy-panel-bg"><img alt="" aria-hidden="true" src="assets/image_07.webp"/></div>
+<div aria-hidden="true" class="copy-panel-bg"><img alt="" aria-hidden="true" src="assets/asset_07.webp"/></div>
 <div class="copy-panel">
 <div class="badge">Інвестуй у найбільш ліквідний ринок нерухомості — США</div>
 <h1 class="h1 hero-title-fixed"><span>Отримуй до ~46% річних</span><span>у доларах за 1,5 роки</span><span class="sub-line hero-invest-fixed"><span>Інвестуй до $330 000 →</span><span>перетворюй у $520 961 за 15 місяців</span></span>
@@ -2570,7 +3176,7 @@ nav.links a:hover{color:var(--white-ink)}
 <p class="hero-lead hero-lead-fixed">Купуємо, оновлюємо і продаємо будинки в Лос-Анджелесі.</p>
 <div class="hero-ctas">
 <a class="btn" href="#zayavka">Отримати презентацію →</a>
-<a class="link-quiet" href="#sut">Як це працює</a>
+<a class="link-quiet" href="#idea">Як це працює</a>
 </div>
 <div class="trust-bar">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -2585,8 +3191,8 @@ nav.links a:hover{color:var(--white-ink)}
 <span>Ваші гроші — під юридичним контролем незалежної компанії США</span>
 </div>
 <div aria-label="Натисніть, щоб побачити трансформацію будинку до і після реконструкції" class="flip-demo flip-framed" id="flipHero" role="button" tabindex="0">
-<img alt="Будинок до реконструкції" class="sync-photo sync-before" src="assets/image_08.webp"/>
-<img alt="Будинок після реконструкції" class="sync-photo sync-after" src="assets/image_09.webp"/>
+<img alt="Будинок до реконструкції" class="sync-photo sync-before" src="assets/asset_08.webp"/>
+<img alt="Будинок після реконструкції" class="sync-photo sync-after" src="assets/asset_09.webp"/>
 <div class="sync-glow"></div><div class="sync-line"></div>
 <div class="sync-hint"><span aria-hidden="true" class="sync-play-mini">▶</span><span>Натисніть, щоб побачити трансформацію</span></div>
 </div>
@@ -2645,22 +3251,22 @@ nav.links a:hover{color:var(--white-ink)}
 <div class="idea-photo idea-gallery" data-gallery="">
 <div class="idea-gallery-track">
 <figure class="idea-gallery-slide is-active">
-<img alt="Фасад будинку до оновлення" src="assets/image_10.webp"/>
+<img alt="Фасад будинку до оновлення" src="assets/asset_10.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Задній двір будинку до оновлення" src="assets/image_11.webp"/>
+<img alt="Задній двір будинку до оновлення" src="assets/asset_11.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Вітальня будинку до оновлення" src="assets/image_12.webp"/>
+<img alt="Вітальня будинку до оновлення" src="assets/asset_12.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Гараж будинку до оновлення" src="assets/image_13.webp"/>
+<img alt="Гараж будинку до оновлення" src="assets/asset_13.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Кухня будинку до оновлення" src="assets/image_14.webp"/>
+<img alt="Кухня будинку до оновлення" src="assets/asset_14.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Ванна кімната будинку до оновлення" src="assets/image_15.webp"/>
+<img alt="Ванна кімната будинку до оновлення" src="assets/asset_15.webp"/>
 </figure>
 </div>
 <span class="idea-stage">01</span>
@@ -2678,22 +3284,22 @@ nav.links a:hover{color:var(--white-ink)}
 <div class="idea-photo idea-gallery" data-gallery="">
 <div class="idea-gallery-track">
 <figure class="idea-gallery-slide is-active">
-<img alt="Фасад будинку під час оновлення" src="assets/image_16.webp"/>
+<img alt="Фасад будинку під час оновлення" src="assets/asset_16.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Задній двір будинку під час оновлення" src="assets/image_17.webp"/>
+<img alt="Задній двір будинку під час оновлення" src="assets/asset_17.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Вітальня будинку під час оновлення" src="assets/image_18.webp"/>
+<img alt="Вітальня будинку під час оновлення" src="assets/asset_18.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Гараж будинку під час оновлення" src="assets/image_19.webp"/>
+<img alt="Гараж будинку під час оновлення" src="assets/asset_19.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Внутрішній простір будинку під час оновлення" src="assets/image_20.webp"/>
+<img alt="Внутрішній простір будинку під час оновлення" src="assets/asset_20.webp"/>
 </figure>
 <figure class="idea-gallery-slide">
-<img alt="Ванна кімната під час оновлення" src="assets/image_21.webp"/>
+<img alt="Ванна кімната під час оновлення" src="assets/asset_21.webp"/>
 </figure>
 </div>
 <span class="idea-stage">02</span>
@@ -2709,7 +3315,7 @@ nav.links a:hover{color:var(--white-ink)}
 </div>
 <div class="idea-step">
 <div class="idea-photo idea-gallery" data-gallery="">
-<div class="idea-gallery-track"><figure class="idea-gallery-slide is-active"><img alt="Фасад готового будинку після оновлення" src="assets/image_22.webp"/></figure><figure class="idea-gallery-slide"><img alt="Задній двір і тераса готового будинку" src="assets/image_23.webp"/></figure><figure class="idea-gallery-slide"><img alt="Сучасний вхідний хол після реконструкції" src="assets/image_24.webp"/></figure><figure class="idea-gallery-slide"><img alt="Вітальня та кухня у готовому будинку" src="assets/image_25.webp"/></figure><figure class="idea-gallery-slide"><img alt="Сучасна ванна кімната після оновлення" src="assets/image_26.webp"/></figure><figure class="idea-gallery-slide"><img alt="Гараж після завершення реконструкції" src="assets/image_27.webp"/></figure></div>
+<div class="idea-gallery-track"><figure class="idea-gallery-slide is-active"><img alt="Фасад готового будинку після оновлення" src="assets/asset_22.webp"/></figure><figure class="idea-gallery-slide"><img alt="Задній двір і тераса готового будинку" src="assets/asset_23.webp"/></figure><figure class="idea-gallery-slide"><img alt="Сучасний вхідний хол після реконструкції" src="assets/asset_24.webp"/></figure><figure class="idea-gallery-slide"><img alt="Вітальня та кухня у готовому будинку" src="assets/asset_25.webp"/></figure><figure class="idea-gallery-slide"><img alt="Сучасна ванна кімната після оновлення" src="assets/asset_26.webp"/></figure><figure class="idea-gallery-slide"><img alt="Гараж після завершення реконструкції" src="assets/asset_27.webp"/></figure></div>
 <span class="idea-stage">03</span>
 <button aria-label="Попереднє фото" class="idea-gallery-arrow idea-gallery-prev" type="button">‹</button>
 <button aria-label="Наступне фото" class="idea-gallery-arrow idea-gallery-next" type="button">›</button>
@@ -2784,15 +3390,16 @@ nav.links a:hover{color:var(--white-ink)}
 <div class="folder-center">
 <div class="folder-visual">
 <div class="owner-photo-shell">
-<img alt="Олексій Коріновський" class="owner-photo" src="assets/image_28.webp"/>
+<img alt="Олексій Коріновський" class="owner-photo" src="assets/asset_28.webp"/>
 </div>
 </div>
 </div>
 <div class="protection-side-copy">
 <div class="side-kicker">Від співвласника</div>
-<p class="protection-lead protection-lead-wide">Коли ми з партнерами і командою почали будувати цей напрямок на новому ринку, для мене було принципово, щоб для інвестора були прозорими всі етапи і очікування від угоди, так як це вимагає ринок США. У нас вже є досвід побудови комплексу та відносин із інвесторами у діючому проєкті в Україні, але зараз прийшов час створювати щось із більшими і новими можливостями.</p>
-<p class="protection-lead protection-lead-wide">Новий ринок, інший підхід і можливості, але перевірена команда і процеси.</p>
-<p class="protection-lead protection-lead-wide">Тут ми фіксуємо ключові умови ще до входу в проєкт: конкретний об’єкт, пріоритет виплат, контроль руху коштів і зрозуміла юридична структура.</p>
+<p class="protection-lead protection-lead-wide">Коли ми з партнерами і командою почали розвивати цей напрямок у США, для мене було принципово, щоб для інвестора були прозорими всі етапи та очікування від угоди — так, як цього вимагає американський ринок.</p>
+<p class="protection-lead protection-lead-wide">Я живу у США вже 5 років, тому добре розумію місцеве середовище, підхід до бізнесу та рівень відповідальності, якого тут очікують від таких проєктів. Водночас у нас уже є досвід побудови комплексу та довгострокових відносин з інвесторами у діючому проєкті в Україні. Зараз прийшов час поєднати цей досвід із більшими та новими можливостями.</p>
+<p class="protection-lead protection-lead-wide">Інший ринок, інший масштаб і можливості, але перевірена команда та процеси.</p>
+<p class="protection-lead protection-lead-wide">Тут ми фіксуємо ключові умови ще до входу в проєкт: конкретний об’єкт, пріоритет виплат, контроль руху коштів і зрозумілу юридичну структуру.</p>
 <div class="owner-sign">
 <span class="owner-name">Олексій Коріновський</span>
 <span class="owner-role">співвласник Wood Devolopment та Wood Hotel Resort &amp; Spa</span>
@@ -2805,47 +3412,47 @@ nav.links a:hover{color:var(--white-ink)}
 <article class="doc-card" data-photo="deed">
 <div class="doc-top"><div class="doc-brand">Wood Devolopment</div></div>
 <div class="doc-content">
-<div class="doc-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"></path><path d="M14 3v4h4"></path><path d="M9.5 13h5M9.5 16.5h5"></path></svg></div>
+<div class="doc-icon doc-icon-3d"><img alt="Юридична реєстрація" class="doc-icon-img" src="assets/asset_29.webp"/></div>
 <h3 class="doc-title">Офіційна юридична реєстрація</h3>
 <p class="doc-text">Ваша частка в угоді буде офіційно зареєстрована в окружному реєстрі нерухомості Лос-Анджелеса.</p>
 </div>
-<div class="doc-photo"></div>
+
 </article>
 <article class="doc-card" data-photo="team">
 <div class="doc-top"><div class="doc-brand">Wood Devolopment</div></div>
 <div class="doc-content">
-<div class="doc-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="8" r="2.4"></circle><path d="M15.5 14.2c2.6.4 4.5 2.7 4.5 5.8"></path></svg></div>
+<div class="doc-icon doc-icon-3d"><img alt="Команда та партнери" class="doc-icon-img" src="assets/asset_30.webp"/></div>
 <h3 class="doc-title">Команда та партнери вже на місці</h3>
 <p class="doc-text">Wood Devolopment разом із партнерами в США вже пропрацювала модель, локальну команду та юридичний захист для кожного інвестора.</p>
 </div>
-<div class="doc-photo"></div>
+
 </article>
 <article class="doc-card" data-photo="house">
 <div class="doc-top"><div class="doc-brand">Wood Devolopment</div></div>
 <div class="doc-content">
-<div class="doc-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24"><path d="M4 10l8-6 8 6"></path><path d="M5 10v9h14v-9"></path><path d="M10 19v-6h4v6"></path></svg></div>
+<div class="doc-icon doc-icon-3d"><img alt="Незалежні розрахунки" class="doc-icon-img" src="assets/asset_31.webp"/></div>
 <h3 class="doc-title">Розрахунки — тільки через незалежну компанію</h3>
 <p class="doc-text">Гроші не проходять через особисті рахунки команди: усі перекази контролює ліцензована Title &amp; Escrow компанія.</p>
 </div>
-<div class="doc-photo"></div>
+
 </article>
 <article class="doc-card" data-photo="la">
 <div class="doc-top"><div class="doc-brand">Wood Devolopment</div></div>
 <div class="doc-content">
-<div class="doc-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8"></path></svg></div>
+<div class="doc-icon doc-icon-3d"><img alt="Без бюрократії" class="doc-icon-img" src="assets/asset_32.webp"/></div>
 <h3 class="doc-title">Без бюрократії в США для вас</h3>
 <p class="doc-text">Не потрібно відкривати бізнес у США чи самостійно працювати з американською податковою — процедурні питання бере на себе структура угоди.</p>
 </div>
-<div class="doc-photo"></div>
+
 </article>
 <article class="doc-card" data-photo="steps">
 <div class="doc-top"><div class="doc-brand">Wood Devolopment</div></div>
 <div class="doc-content">
-<div class="doc-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+<div class="doc-icon doc-icon-3d"><img alt="Пріоритетний розрахунок інвестору" class="doc-icon-img" src="assets/asset_33.webp"/></div>
 <h3 class="doc-title">Приорітетний розрахунок перед інвестором</h3>
 <p class="doc-text">За фіксованими умовами, спочатку в повному обсязі погашається зобовʼязання перед вами — тіло та відсотки. Лише після цього команда отримує свою частку прибутку.</p>
 </div>
-<div class="doc-photo"></div>
+
 </article>
 </div>
 </div>
@@ -2871,7 +3478,7 @@ nav.links a:hover{color:var(--white-ink)}
 <i>→</i>
 <div><span>Цільова ціна продажу</span><strong>~$3.0M</strong></div>
 </div>
-<p class="model-note">Базовий цикл — 15 місяців: приблизно 12 місяців на проєктування та реконструкцію і близько 3 місяців на продаж. Ціна продажу $3.0M — прогноз фінансової моделі, а не гарантія.</p>
+<p class="model-note">Базовий цикл — 15 місяців: приблизно 12 місяців на проєктування та реконструкцію і близько 3 місяців на продаж.</p>
 <div class="return-explainer">
 <div class="return-explainer-head">
 <span>Як формується до ~46% річних</span>
@@ -2980,7 +3587,7 @@ nav.links a:hover{color:var(--white-ink)}
 <div class="wood-track-grid wood-track-grid--visual">
 <div class="wood-track-copy">
 <div aria-label="WOOD Hotel Resort &amp; Spa" class="wood-hotel-logo">
-<img alt="WOOD Hotel Resort &amp; Spa" src="assets/image_29.webp"/>
+<img alt="WOOD Hotel Resort &amp; Spa" src="assets/asset_34.webp"/>
 </div>
 <h2>Ми вже працюємо з нерухомістю та капіталом інвесторів</h2>
 <p class="wood-track-lead">WOOD Hotel Resort &amp; Spa — діючий інвестиційний проєкт команди. Тут ми пройшли повний шлях: від створення об'єкта та залучення інвесторів до запуску, операційного управління, продажів і подальшого розвитку інфраструктури.</p>
@@ -2994,10 +3601,10 @@ nav.links a:hover{color:var(--white-ink)}
 </div>
 <div class="wood-track-visual">
 <a aria-label="Перейти на сайт WOOD Hotel Resort &amp; Spa" class="wood-photo-frame" href="https://wood-hotel.com.ua/" rel="noopener noreferrer" target="_blank">
-<img alt="WOOD Hotel Resort &amp; Spa — діючий інвестиційний проєкт команди" loading="lazy" src="assets/image_30.webp"/>
+<img alt="WOOD Hotel Resort &amp; Spa — діючий інвестиційний проєкт команди" loading="lazy" src="assets/asset_35.webp"/>
 <div class="wood-photo-shade"></div>
 <div class="wood-photo-caption wood-photo-caption--logo">
-<img alt="" aria-hidden="true" src="assets/image_29.webp"/>
+<img alt="" aria-hidden="true" src="assets/asset_34.webp"/>
 </div>
 <div class="wood-photo-badge"><strong>120+</strong><span>інвесторів</span></div>
 </a>
@@ -3085,10 +3692,10 @@ nav.links a:hover{color:var(--white-ink)}
 <div class="foot-links">
 <a href="#idea">Модель</a>
 <a href="#chomu-ssha">Захист</a>
-<a href="#sut">Угода</a>
-<a href="#calculation">Розрахунок</a>
+<a href="#idea">Угода</a>
+<a href="#model">Розрахунок</a>
 <a href="#wood">WOOD Hotel</a>
-<a href="#risks">Ризики</a>
+<a href="#faq">Ризики</a>
 <a href="#faq">FAQ</a>
 </div>
 </div>
@@ -3146,5 +3753,29 @@ nav.links a:hover{color:var(--white-ink)}
 })();
 </script>
 <!-- v42: first gallery images embedded as data URIs to ensure rendering in sandbox preview -->
+
+<script>
+(function(){
+  const header=document.getElementById('siteHeader');
+  if(!header) return;
+  const mq=window.matchMedia('(max-width: 860px)');
+  let lastY=window.scrollY, ticking=false;
+  function update(){
+    ticking=false;
+    if(!mq.matches){header.classList.remove('mobile-hidden');lastY=window.scrollY;return;}
+    const y=window.scrollY;
+    const menuOpen=!!document.querySelector('.mobile-menu.is-open');
+    if(menuOpen || y<90){header.classList.remove('mobile-hidden');lastY=y;return;}
+    const delta=y-lastY;
+    if(delta>8) header.classList.add('mobile-hidden');
+    else if(delta<-6) header.classList.remove('mobile-hidden');
+    lastY=y;
+  }
+  window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
+  window.addEventListener('resize',update,{passive:true});
+  const toggle=document.querySelector('.menu-toggle');
+  if(toggle) toggle.addEventListener('click',()=>header.classList.remove('mobile-hidden'));
+})();
+</script>
 </body>
 </html>
