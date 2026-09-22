@@ -2,6 +2,9 @@
 
 <html lang="uk">
 <head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta charset="utf-8"/>
 <style>
 /* ===== v7: rebuilt investment header ===== */
@@ -3219,7 +3222,7 @@ img{height:auto}
 }
 </style>
 
-<meta name="wd-build" content="v79-2026-09-22-mobile-header-materials-fix">
+<meta name="wd-build" content="v82-2026-09-22-materials-heading-grid">
 <style>
 /* ===== v79 — real mobile fix: header behavior + materials structure ===== */
 @media (max-width:860px){
@@ -3286,8 +3289,270 @@ img{height:auto}
   #materials .reels-showcase{grid-auto-columns:min(60vw,220px)!important}
 }
 </style>
+<style>
+/* ===== v80 — mobile materials hard structural fix ===== */
+@media (max-width:860px){
+  /* Give this block its own reading gutter regardless of legacy .wrap rules. */
+  #materials{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:48px 0 0!important;
+    padding:0 var(--mobile-gutter) 8px!important;
+    overflow:visible!important;
+  }
+  #materials .premium-materials-head--reels{
+    display:block!important;
+    width:100%!important;
+    margin:0 0 18px!important;
+    padding:0!important;
+  }
+  #materials .premium-materials-head--reels h3{
+    margin:0 0 11px!important;
+    font-size:clamp(25px,6.8vw,29px)!important;
+    line-height:1.09!important;
+    letter-spacing:-.026em!important;
+    text-wrap:balance!important;
+  }
+  #materials .premium-materials-head--reels>p{
+    margin:0!important;
+    max-width:none!important;
+    font-size:14px!important;
+    line-height:1.56!important;
+  }
+  #materials .premium-materials-head--reels::after{
+    content:'Гортайте →'!important;
+    display:block!important;
+    margin-top:12px!important;
+    color:#9B7438!important;
+    font:700 9.5px/1 'Manrope',sans-serif!important;
+    letter-spacing:.14em!important;
+    text-transform:uppercase!important;
+  }
+  /* Flex instead of legacy grid: old grid-auto-column rules can no longer affect the cards. */
+  #materials .reels-showcase{
+    display:flex!important;
+    flex-flow:row nowrap!important;
+    align-items:flex-start!important;
+    gap:14px!important;
+    width:calc(100% + var(--mobile-gutter))!important;
+    max-width:none!important;
+    margin:0 calc(var(--mobile-gutter) * -1) 0 0!important;
+    padding:0 var(--mobile-gutter) 12px 0!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory!important;
+    scroll-padding-left:0!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-inline:contain!important;
+    scrollbar-width:none!important;
+  }
+  #materials .reels-showcase::-webkit-scrollbar{display:none!important}
+  #materials .reel-card,
+  #materials .reel-card--offset-1,
+  #materials .reel-card--offset-2,
+  #materials .reel-card--offset-3,
+  #materials .reel-card--offset-4{
+    display:block!important;
+    flex:0 0 min(58vw,220px)!important;
+    width:min(58vw,220px)!important;
+    max-width:220px!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    scroll-snap-align:start!important;
+    scroll-snap-stop:always!important;
+  }
+  #materials .reel-frame{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:9/16!important;
+    border-radius:2px!important;
+    box-shadow:0 12px 24px rgba(12,32,49,.08)!important;
+  }
+  #materials .reel-frame::after{inset:9px!important}
+  #materials .reel-topline{top:12px!important;left:12px!important;font-size:9px!important}
+  #materials .reel-bottom{left:12px!important;right:12px!important;bottom:12px!important}
+  #materials .reel-bottom strong{font-size:13px!important;line-height:1.2!important}
+  #materials .reel-play{width:44px!important;height:44px!important}
+}
+@media (max-width:390px){
+  #materials .reel-card,
+  #materials .reel-card--offset-1,
+  #materials .reel-card--offset-2,
+  #materials .reel-card--offset-3,
+  #materials .reel-card--offset-4{
+    flex-basis:min(57vw,210px)!important;
+    width:min(57vw,210px)!important;
+    max-width:210px!important;
+  }
+}
+</style>
+
+<style>
+/* ===== v81 — materials mobile spacing only ===== */
+@media (max-width:860px){
+  /* This block keeps a real reading gutter on both sides. */
+  #materials{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:44px 0 0!important;
+    padding:26px 20px 10px!important;
+    border-top:1px solid rgba(12,32,49,.14)!important;
+    overflow:hidden!important;
+  }
+  #materials .premium-materials-head--reels{
+    box-sizing:border-box!important;
+    width:100%!important;
+    margin:0 0 18px!important;
+    padding:0!important;
+  }
+  #materials .premium-materials-head--reels h3{
+    margin:0 0 10px!important;
+  }
+  #materials .premium-materials-head--reels>p{
+    margin:0!important;
+  }
+  #materials .premium-materials-head--reels::after{
+    margin-top:12px!important;
+  }
+
+  /* No negative margins or viewport bleed on mobile. */
+  #materials .reels-showcase{
+    display:flex!important;
+    flex-flow:row nowrap!important;
+    align-items:flex-start!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding:0 0 14px!important;
+    gap:12px!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    scroll-snap-type:x mandatory!important;
+    scroll-padding-left:0!important;
+    -webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-inline:contain!important;
+    scrollbar-width:none!important;
+  }
+  #materials .reels-showcase::-webkit-scrollbar{display:none!important}
+  #materials .reel-card,
+  #materials .reel-card--offset-1,
+  #materials .reel-card--offset-2,
+  #materials .reel-card--offset-3,
+  #materials .reel-card--offset-4{
+    flex:0 0 min(60vw,220px)!important;
+    width:min(60vw,220px)!important;
+    max-width:220px!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    scroll-snap-align:start!important;
+  }
+  #materials .reel-frame{
+    width:100%!important;
+    aspect-ratio:9/16!important;
+  }
+}
+@media (max-width:390px){
+  #materials{padding-left:18px!important;padding-right:18px!important}
+  #materials .reel-card,
+  #materials .reel-card--offset-1,
+  #materials .reel-card--offset-2,
+  #materials .reel-card--offset-3,
+  #materials .reel-card--offset-4{
+    flex-basis:min(61vw,214px)!important;
+    width:min(61vw,214px)!important;
+    max-width:214px!important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== v81.1 — robust mobile gutter for materials block inside #idea .wrap ===== */
+@media (max-width:860px){
+  #materials{
+    box-sizing:border-box!important;
+    width:calc(100% + (var(--mobile-gutter) * 2))!important;
+    max-width:none!important;
+    margin:46px calc(var(--mobile-gutter) * -1) 0!important;
+    padding:30px var(--mobile-gutter) 16px!important;
+    border-top:1px solid rgba(12,32,49,.14)!important;
+    overflow:hidden!important;
+  }
+  #materials .premium-materials-head--reels{
+    margin:0 0 22px!important;
+    padding:0!important;
+  }
+  #materials .premium-materials-head--reels::after{
+    margin-top:14px!important;
+  }
+  #materials .reels-showcase{
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding:0 0 16px!important;
+    gap:12px!important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== v82 — materials heading aligned to the site mobile text grid ===== */
+@media (max-width:860px){
+  /* #materials already lives inside #idea .wrap, so it must not add a second horizontal gutter. */
+  #materials{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:46px 0 0!important;
+    padding:30px 0 16px!important;
+    border-top:1px solid rgba(12,32,49,.14)!important;
+    overflow:visible!important;
+  }
+  #materials .premium-materials-head--reels{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0 0 22px!important;
+    padding:0!important;
+  }
+  #materials .premium-materials-head--reels>div,
+  #materials .premium-materials-head--reels h3,
+  #materials .premium-materials-head--reels>p{
+    width:100%!important;
+    max-width:none!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  #materials .premium-materials-head--reels h3{
+    margin-top:0!important;
+    margin-bottom:11px!important;
+  }
+  #materials .premium-materials-head--reels>p{margin-top:0!important;margin-bottom:0!important}
+  #materials .premium-materials-head--reels::after{margin-top:13px!important}
+
+  /* Carousel starts on the same left axis as the heading and bleeds only to the right edge. */
+  #materials .reels-showcase{
+    box-sizing:border-box!important;
+    width:calc(100% + var(--mobile-gutter))!important;
+    max-width:none!important;
+    margin:0 calc(var(--mobile-gutter) * -1) 0 0!important;
+    padding:0 var(--mobile-gutter) 16px 0!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+  }
+}
+</style>
+
 </head>
-<body>
+<body data-build="v82">
 <header class="site-header" id="siteHeader"><div class="wrap header-inner"><a aria-label="Wood Devolopment — на початок" class="header-brand" href="#top"><img alt="Wood Devolopment" class="brand-logo" src="assets/asset_06.webp"/></a><nav aria-label="Основна навігація" class="header-nav"><a href="#idea">Ціль</a><a href="#chomu-ssha">Гарантії пропозиції</a><a href="#model">Розрахунок</a><a href="#wood">Досвід</a></nav><a class="header-cta" href="#zayavka">Дізнатись деталі</a><button aria-expanded="false" aria-label="Відкрити меню" class="menu-toggle" type="button"><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu"><a href="#idea">Ціль</a><a href="#chomu-ssha">Гарантії пропозиції</a><a href="#model">Розрахунок</a><a href="#wood">Досвід</a><a class="mobile-menu-cta" href="#zayavka">Дізнатись деталі</a></div></header>
 <!-- ============ HERO — LA sunset ============ -->
 <section class="hero" id="top">
