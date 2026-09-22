@@ -1,9 +1,6 @@
-GitHub Pages package — v75
-
-Upload the CONTENTS of this folder to the ROOT of the repository:
+Wood Development v78 — consolidated mobile QA build (2026-09-22)
+Upload the CONTENTS of this folder to the repository root:
 - index.html
 - .nojekyll
 - assets/
-
-Do not upload the enclosing folder itself and do not publish the ZIP directly.
-In GitHub Pages use: branch main, folder / (root).
+This build includes today's mobile fixes: edge-to-edge hero, mobile header visible through hero / hides downward after hero / returns upward, and compact materials swipe block.
