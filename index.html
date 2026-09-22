@@ -3219,8 +3219,73 @@ img{height:auto}
 }
 </style>
 
-<meta name="wd-build" content="v78-2026-09-22-mobile-qa">
-\n<style>\n/* ===== v78 — final mobile QA: fixed hero header + full-bleed hero + compact materials ===== */\n@media (max-width:860px){\n  html,body{\n    width:100%!important;max-width:100%!important;margin:0!important;padding:0!important;\n    overflow-x:hidden!important;overscroll-behavior-x:none;\n  }\n  body{position:relative!important}\n\n  /* Header floats over the first block, disappears only after hero on downward scroll. */\n  .site-header{\n    position:fixed!important;\n    top:0!important;left:0!important;right:0!important;\n    width:100%!important;\n    z-index:1000!important;\n    transform:translate3d(0,0,0)!important;\n    background:#0A0D15!important;\n    border-bottom:1px solid rgba(255,255,255,.075)!important;\n    box-shadow:0 8px 22px rgba(0,0,0,.08)!important;\n    backdrop-filter:none!important;-webkit-backdrop-filter:none!important;\n    transition:transform .25s cubic-bezier(.22,.61,.36,1),box-shadow .22s ease!important;\n    will-change:transform!important;\n  }\n  .site-header.mobile-hidden{transform:translate3d(0,-110%,0)!important}\n  .site-header.menu-open{transform:translate3d(0,0,0)!important}\n  .header-inner{height:62px!important;min-height:62px!important;padding-left:var(--mobile-gutter)!important;padding-right:var(--mobile-gutter)!important}\n  .site-header .brand-logo{height:20px!important;max-width:150px!important}\n  .site-header .menu-toggle{margin-right:-4px!important}\n  .mobile-menu{position:absolute!important;top:100%!important;left:0!important;right:0!important;max-height:calc(100dvh - 62px)!important;overflow:auto!important}\n  section[id]{scroll-margin-top:76px!important}\n\n  /* Hero is truly edge-to-edge; content gets room for the floating header. */\n  .hero{\n    position:relative!important;width:100%!important;max-width:none!important;\n    margin:0!important;padding:0!important;background:#0B0E16!important;overflow:hidden!important;\n  }\n  .hero .split{position:relative!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;overflow:hidden!important}\n  .hero .copy-panel-bg{position:absolute!important;inset:-4px!important;width:auto!important;height:auto!important;overflow:hidden!important}\n  .hero .copy-panel-bg img{\n    position:absolute!important;inset:0!important;width:100%!important;max-width:none!important;height:100%!important;\n    object-fit:cover!important;object-position:45% 34%!important;transform:scale(1.02)!important;transform-origin:center!important;\n  }\n  .hero .copy-panel{\n    position:relative!important;z-index:2!important;width:100%!important;max-width:none!important;margin:0!important;\n    padding:calc(62px + 28px) var(--mobile-gutter) 28px!important;\n  }\n  .hero .media-panel{position:relative!important;z-index:2!important;width:100%!important;max-width:none!important;margin:0!important;padding:4px var(--mobile-gutter) 30px!important}\n\n  /* “Поглянемо…”: readable heading + compact swipe cards, no giant empty viewport. */\n  #materials{margin-top:34px!important;padding-top:28px!important;scroll-margin-top:76px!important}\n  #materials .premium-materials-head--reels{display:block!important;margin:0 0 18px!important;padding:0!important}\n  #materials .premium-materials-head--reels h3{margin:0 0 11px!important;font-size:clamp(26px,7vw,30px)!important;line-height:1.08!important;letter-spacing:-.025em!important}\n  #materials .premium-materials-head--reels>p{margin:0!important;max-width:none!important;font-size:14px!important;line-height:1.58!important}\n  #materials .premium-materials-head--reels::after{content:'Гортайте →'!important;display:block!important;margin-top:12px!important;color:#9b7438!important;font:700 9.5px/1 'Manrope',sans-serif!important;letter-spacing:.14em!important;text-transform:uppercase!important}\n  #materials .reels-showcase{\n    display:grid!important;grid-auto-flow:column!important;grid-auto-columns:min(64vw,252px)!important;\n    gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory!important;\n    -webkit-overflow-scrolling:touch!important;scrollbar-width:none!important;\n    margin:0 calc(var(--mobile-gutter) * -1)!important;padding:0 var(--mobile-gutter) 12px!important;\n  }\n  #materials .reels-showcase::-webkit-scrollbar{display:none!important}\n  #materials .reel-card{scroll-snap-align:start!important}\n  #materials .reel-frame{aspect-ratio:9/15.2!important;min-height:0!important;box-shadow:0 12px 24px rgba(12,32,49,.08)!important}\n  #materials .reel-topline{top:13px!important;left:13px!important}\n  #materials .reel-bottom{left:13px!important;right:13px!important;bottom:13px!important}\n  #materials .reel-bottom strong{font-size:13.5px!important;line-height:1.22!important}\n  #materials .reel-play{width:46px!important;height:46px!important}\n}\n@media (max-width:390px){\n  .hero .copy-panel{padding-top:84px!important}\n  #materials .reels-showcase{grid-auto-columns:66vw!important}\n}\n</style>\n
+<meta name="wd-build" content="v79-2026-09-22-mobile-header-materials-fix">
+<style>
+/* ===== v79 — real mobile fix: header behavior + materials structure ===== */
+@media (max-width:860px){
+  html,body{
+    width:100%!important;max-width:100%!important;margin:0!important;padding:0!important;
+    overflow-x:hidden!important;overscroll-behavior-x:none!important;
+  }
+
+  /* Header: visible through hero, hidden after hero while scrolling down, appears on scroll up. */
+  .site-header{
+    position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;
+    z-index:1200!important;background:#0A0D15!important;border-bottom:1px solid rgba(255,255,255,.075)!important;
+    box-shadow:0 8px 22px rgba(0,0,0,.08)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+    transform:translate3d(0,0,0)!important;
+    transition:transform .26s cubic-bezier(.22,.61,.36,1),box-shadow .22s ease!important;
+    will-change:transform!important;
+  }
+  .site-header.mobile-hidden{transform:translate3d(0,-105%,0)!important;pointer-events:none!important}
+  .site-header.menu-open{transform:translate3d(0,0,0)!important;pointer-events:auto!important}
+  .header-inner{height:62px!important;min-height:62px!important;padding-left:var(--mobile-gutter)!important;padding-right:var(--mobile-gutter)!important}
+  .site-header .brand-logo{height:20px!important;max-width:150px!important}
+  .site-header .menu-toggle{margin-right:-4px!important}
+  .mobile-menu{position:absolute!important;top:100%!important;left:0!important;right:0!important;max-height:calc(100dvh - 62px)!important;overflow:auto!important}
+  section[id]{scroll-margin-top:76px!important}
+
+  /* Keep the corrected full-bleed hero. */
+  .hero{position:relative!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;background:#0B0E16!important;overflow:hidden!important}
+  .hero .split{position:relative!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;overflow:hidden!important}
+  .hero .copy-panel-bg{position:absolute!important;inset:-4px!important;width:auto!important;height:auto!important;overflow:hidden!important}
+  .hero .copy-panel-bg img{position:absolute!important;inset:0!important;width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important;object-position:45% 34%!important;transform:scale(1.02)!important;transform-origin:center!important}
+  .hero .copy-panel{position:relative!important;z-index:2!important;width:100%!important;max-width:none!important;margin:0!important;padding:90px var(--mobile-gutter) 28px!important}
+  .hero .media-panel{position:relative!important;z-index:2!important;width:100%!important;max-width:none!important;margin:0!important;padding:4px var(--mobile-gutter) 30px!important}
+
+  /* Materials: structurally smaller reels, aligned with the text gutter, next card remains visible. */
+  #materials{margin-top:32px!important;padding-top:26px!important;scroll-margin-top:18px!important;width:100%!important;min-width:0!important}
+  #materials .premium-materials-head--reels{display:block!important;width:100%!important;margin:0 0 16px!important;padding:0!important}
+  #materials .premium-materials-head--reels h3{margin:0 0 10px!important;font-size:clamp(25px,6.8vw,29px)!important;line-height:1.08!important;letter-spacing:-.025em!important;text-wrap:balance}
+  #materials .premium-materials-head--reels>p{margin:0!important;max-width:none!important;font-size:14px!important;line-height:1.55!important}
+  #materials .premium-materials-head--reels::after{content:'Гортайте →'!important;display:block!important;margin-top:11px!important;color:#9B7438!important;font:700 9.5px/1 'Manrope',sans-serif!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+
+  #materials .reels-showcase{
+    display:grid!important;grid-template-columns:none!important;grid-auto-flow:column!important;grid-auto-columns:min(58vw,228px)!important;
+    align-items:start!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important;
+    width:calc(100% + var(--mobile-gutter))!important;max-width:none!important;
+    margin:0 calc(var(--mobile-gutter) * -1) 0 0!important;padding:0 var(--mobile-gutter) 10px 0!important;
+    scroll-snap-type:x mandatory!important;scroll-padding-left:0!important;-webkit-overflow-scrolling:touch!important;
+    overscroll-behavior-inline:contain!important;scrollbar-width:none!important;
+  }
+  #materials .reels-showcase::-webkit-scrollbar{display:none!important}
+  #materials .reel-card,#materials .reel-card--offset-1,#materials .reel-card--offset-2,#materials .reel-card--offset-3,#materials .reel-card--offset-4{
+    width:auto!important;min-width:0!important;padding-top:0!important;margin:0!important;scroll-snap-align:start!important;
+  }
+  #materials .reel-frame{
+    width:100%!important;min-height:0!important;height:auto!important;aspect-ratio:9/16!important;
+    box-shadow:0 12px 24px rgba(12,32,49,.08)!important;
+  }
+  #materials .reel-frame:after{inset:9px!important}
+  #materials .reel-topline{top:12px!important;left:12px!important;font-size:9px!important}
+  #materials .reel-bottom{left:12px!important;right:12px!important;bottom:12px!important}
+  #materials .reel-bottom strong{font-size:13px!important;line-height:1.2!important}
+  #materials .reel-play{width:44px!important;height:44px!important}
+}
+@media (max-width:390px){
+  #materials .reels-showcase{grid-auto-columns:min(60vw,220px)!important}
+}
+</style>
 </head>
 <body>
 <header class="site-header" id="siteHeader"><div class="wrap header-inner"><a aria-label="Wood Devolopment — на початок" class="header-brand" href="#top"><img alt="Wood Devolopment" class="brand-logo" src="assets/asset_06.webp"/></a><nav aria-label="Основна навігація" class="header-nav"><a href="#idea">Ціль</a><a href="#chomu-ssha">Гарантії пропозиції</a><a href="#model">Розрахунок</a><a href="#wood">Досвід</a></nav><a class="header-cta" href="#zayavka">Дізнатись деталі</a><button aria-expanded="false" aria-label="Відкрити меню" class="menu-toggle" type="button"><span></span><span></span></button></div><div class="mobile-menu" id="mobileMenu"><a href="#idea">Ціль</a><a href="#chomu-ssha">Гарантії пропозиції</a><a href="#model">Розрахунок</a><a href="#wood">Досвід</a><a class="mobile-menu-cta" href="#zayavka">Дізнатись деталі</a></div></header>
@@ -3817,7 +3882,7 @@ img{height:auto}
 
 
 <script>
-/* v78 — deterministic mobile header behavior for iOS Safari / Telegram browser */
+/* v79 — robust directional mobile header for iOS Safari / Telegram in-app browser */
 (function(){
   const header=document.getElementById('siteHeader');
   const hero=document.querySelector('.hero');
@@ -3826,62 +3891,65 @@ img{height:auto}
   if(!header||!hero) return;
 
   const mq=window.matchMedia('(max-width: 860px)');
-  let lastY=Math.max(0,window.scrollY||0);
-  let heroBottom=0;
-  let raf=0;
+  let lastY=Math.max(0,window.pageYOffset||document.documentElement.scrollTop||0);
+  let heroEnd=0;
+  let outside=false;
+  let direction=0;
+  let directionStart=lastY;
+  let ticking=false;
 
-  function menuOpen(){
-    return !!(toggle&&toggle.getAttribute('aria-expanded')==='true') || !!(menu&&menu.classList.contains('is-open'));
-  }
-  function measure(){
-    const r=hero.getBoundingClientRect();
-    heroBottom=(window.scrollY||0)+r.bottom;
-  }
+  function getY(){return Math.max(0,window.pageYOffset||document.documentElement.scrollTop||0)}
+  function measure(){heroEnd=hero.offsetTop+hero.offsetHeight}
+  function menuOpen(){return !!(toggle&&toggle.getAttribute('aria-expanded')==='true')||!!(menu&&menu.classList.contains('is-open'))}
   function show(){header.classList.remove('mobile-hidden')}
   function hide(){if(!menuOpen()) header.classList.add('mobile-hidden')}
+
   function update(){
-    raf=0;
-    const y=Math.max(0,window.scrollY||0);
-    const dy=y-lastY;
+    ticking=false;
+    const y=getY();
 
     if(!mq.matches){
-      show();header.classList.remove('menu-open');lastY=y;return;
+      show();header.classList.remove('menu-open');outside=false;direction=0;lastY=y;return;
     }
     if(menuOpen()){
       header.classList.add('menu-open');show();lastY=y;return;
     }
     header.classList.remove('menu-open');
 
-    /* Hero / first block: header always visible. */
-    if(y < Math.max(0,heroBottom-2)){
-      show();
-    } else if(dy >= 8){
-      /* After hero, down = hide. */
-      hide();
-    } else if(dy <= -5){
-      /* Up = reveal immediately. */
-      show();
+    const nowOutside=y>heroEnd-2;
+    if(!nowOutside){
+      show();outside=false;direction=0;directionStart=y;lastY=y;return;
     }
-    if(y <= 2) show();
+
+    /* First moment after leaving the first block: hide immediately. */
+    if(!outside){
+      outside=true;direction=1;directionStart=y;hide();lastY=y;return;
+    }
+
+    const delta=y-lastY;
+    const newDirection=delta>0.5?1:(delta<-0.5?-1:0);
+    if(newDirection&&newDirection!==direction){
+      direction=newDirection;directionStart=lastY;
+    }
+
+    /* Accumulate real movement instead of requiring a large single scroll event. */
+    if(direction===-1 && directionStart-y>=7){show()}
+    if(direction===1 && y-directionStart>=10){hide()}
+
     lastY=y;
   }
-  function onScroll(){if(!raf) raf=requestAnimationFrame(update)}
-  function resetMeasure(){measure();show();lastY=Math.max(0,window.scrollY||0)}
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+  function reset(){measure();lastY=getY();outside=lastY>heroEnd-2;direction=0;directionStart=lastY;if(!mq.matches||lastY<=heroEnd-2)show();else hide()}
 
-  measure();update();
+  measure();reset();
   window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',resetMeasure,{passive:true});
-  window.addEventListener('orientationchange',function(){setTimeout(resetMeasure,180)},{passive:true});
+  window.addEventListener('load',function(){setTimeout(reset,80)},{once:true});
+  window.addEventListener('resize',function(){setTimeout(reset,60)},{passive:true});
+  window.addEventListener('orientationchange',function(){setTimeout(reset,220)},{passive:true});
   if(window.visualViewport) window.visualViewport.addEventListener('resize',function(){setTimeout(measure,60)},{passive:true});
 
-  if(toggle){
-    toggle.addEventListener('click',function(){setTimeout(function(){
-      if(menuOpen()){header.classList.add('menu-open');show()}else{header.classList.remove('menu-open')}
-    },0)});
-  }
-  if(menu){
-    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){header.classList.remove('menu-open');show()})});
-  }
+  if(toggle){toggle.addEventListener('click',function(){setTimeout(function(){if(menuOpen()){header.classList.add('menu-open');show()}else header.classList.remove('menu-open')},0)})}
+  if(menu){menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){header.classList.remove('menu-open');show()})})}
 })();
 </script>
 
