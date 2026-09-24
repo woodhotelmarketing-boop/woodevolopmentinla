@@ -1,9 +1,2 @@
-Wood Development v82 — GitHub Pages
-
-Upload the CONTENTS of this folder to the repository root:
-- index.html
-- .nojekyll
-- assets/
-
-v82.html is included only as a cache-busting preview URL.
-Main published page: index.html
+Upload the CONTENTS of this folder to the root of the GitHub Pages repository.
+index.html is the live page. v91.html is a cache-busting preview copy.
